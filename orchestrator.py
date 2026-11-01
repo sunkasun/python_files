@@ -114,15 +114,22 @@ class Orchestrator:
             return g["Delta"], g["Gamma"]
         pre = (1 if pricer.tree_method.nb_nodes == 3 else 2) if method == "Nœuds autour de la racine" else 0
         tree = Orchestrator.vector_tree(market, option, pricer, pre)
-        levels = tree.levels
-        tree.release()
-        level = levels[pre] if pre else next(lv for lv in levels if len(lv["S"]) >= 3)
-        order = np.argsort(level["S"])
-        spot_prices, option_values = level["S"][order], level["V"][order]
-        j = int(np.clip(np.argmin(np.abs(spot_prices - market.s0)), 1, len(spot_prices) - 2))
-        (s0, s1, s2), (v0, v1, v2) = spot_prices[j - 1:j + 2], option_values[j - 1:j + 2]
-        gamma = 2.0 * ((v2 - v1) / (s2 - s1) - (v1 - v0) / (s1 - s0)) / (s2 - s0)
-        return float((v2 - v0) / (s2 - s0) + gamma * (market.s0 - s1)), float(gamma)
+        try:
+            levels = tree.levels
+            level = levels[pre] if pre else next((lv for lv in levels if len(lv["S"]) >= 3), None)
+            if level is not None and len(level["S"]) >= 3:
+                order = np.argsort(level["S"])
+                spot_prices, option_values = level["S"][order], level["V"][order]
+                j = int(np.clip(np.argmin(np.abs(spot_prices - market.s0)), 1, len(spot_prices) - 2))
+                (s0, s1, s2), (v0, v1, v2) = spot_prices[j - 1:j + 2], option_values[j - 1:j + 2]
+                if s0 < s1 < s2:
+                    gamma = 2.0 * ((v2 - v1) / (s2 - s1) - (v1 - v0) / (s1 - s0)) / (s2 - s0)
+                    delta = (v2 - v0) / (s2 - s0) + gamma * (market.s0 - s1)
+                    return float(delta), float(gamma)
+        finally:
+            tree.release()
+        # Un arbre plat ou trop court ne permet pas de calculer trois pentes nodales.
+        return Orchestrator.delta_gamma(market, option, pricer, "Choc du spot")
 
     # ------------------------------------------------------------------------------------------------------------
     # Débogage et contrôles de cohérence (sanity checks)
