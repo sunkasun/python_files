@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang='fr'>
+<head>
+  <meta charset='utf-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <title>CheckStyle - Analyse Python</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 24px;
+      line-height: 1.35;
+    }
+    h1 { font-size: 20px; margin: 0 0 6px 0; }
+    .meta { opacity: 0.75; margin: 0 0 18px 0; font-size: 13px; }
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(127,127,127,0.35);
+      font-size: 13px;
+      margin: 10px 0 16px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid rgba(127,127,127,0.35);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    thead th {
+      position: sticky;
+      top: 0;
+      background: rgba(127,127,127,0.12);
+      backdrop-filter: blur(4px);
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      padding: 10px 10px;
+      border-bottom: 1px solid rgba(127,127,127,0.35);
+      white-space: nowrap;
+    }
+    tbody td {
+      padding: 10px 10px;
+      border-bottom: 1px solid rgba(127,127,127,0.2);
+      font-size: 13px;
+      vertical-align: top;
+    }
+    tbody tr:nth-child(even) { background: rgba(127,127,127,0.06); }
+    td.details { min-width: 240px; }
+    details summary { cursor: pointer; user-select: none; }
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(127,127,127,0.25);
+      background: rgba(127,127,127,0.08);
+      margin: 8px 0 0 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 12px;
+    }
+    .raw { margin-top: 16px; }
+  </style>
+</head>
+<body>
+  <h1>CheckStyle - Analyse Python</h1>
+  <p class='meta'>Généré le 2026-11-01 23:29:30</p>
+  <div class='badge'>Global grade = 5 / 5</div>
+
+  <table>
+    <thead><tr><th scope='col'>Fichier</th><th scope='col'>Note / 5</th><th scope='col'>Classes</th><th scope='col'>Subs</th><th scope='col'>Fonctions</th><th scope='col'>Lignes</th><th scope='col'>Lignes vides</th><th scope='col'>Lignes sans com.</th><th scope='col'>Privées</th><th scope='col'>Fonctions non typées</th><th scope='col'>Params func non typés</th><th scope='col'>Params sub non typés</th><th scope='col'>Profondeur max</th><th scope='col'>Max lignes / méthode</th><th scope='col'>Détails</th></tr></thead>
+    <tbody><tr><td>app.py</td><td>5</td><td>1</td><td>6</td><td>5</td><td>156</td><td>19</td><td>22</td><td>7</td><td></td><td></td><td></td><td>3</td><td>13</td><td class='details'></td></tr><tr><td>black_scholes.py</td><td>5</td><td>2</td><td>2</td><td>4</td><td>62</td><td>11</td><td>25</td><td>2</td><td></td><td></td><td></td><td>2</td><td>11</td><td class='details'></td></tr><tr><td>level.py</td><td>5</td><td>2</td><td>6</td><td>7</td><td>200</td><td>18</td><td>20</td><td>8</td><td></td><td></td><td></td><td>3</td><td>18</td><td class='details'></td></tr><tr><td>main.py</td><td>5</td><td></td><td></td><td></td><td>2</td><td>1</td><td>2</td><td></td><td></td><td></td><td></td><td></td><td></td><td class='details'></td></tr><tr><td>market.py</td><td>5</td><td>1</td><td>1</td><td>2</td><td>26</td><td>4</td><td>13</td><td>1</td><td></td><td></td><td></td><td>2</td><td>6</td><td class='details'></td></tr><tr><td>node.py</td><td>5</td><td>2</td><td>2</td><td>5</td><td>83</td><td>11</td><td>25</td><td>3</td><td></td><td></td><td></td><td>3</td><td>15</td><td class='details'></td></tr><tr><td>option.py</td><td>5</td><td>3</td><td>1</td><td>3</td><td>30</td><td>11</td><td>17</td><td>1</td><td></td><td></td><td></td><td>2</td><td>6</td><td class='details'></td></tr><tr><td>option_pricer.py</td><td>5</td><td>1</td><td>1</td><td>10</td><td>141</td><td>17</td><td>21</td><td>7</td><td></td><td></td><td></td><td>3</td><td>20</td><td class='details'></td></tr><tr><td>orchestrator.py</td><td>5</td><td>1</td><td>10</td><td>12</td><td>328</td><td>40</td><td>20</td><td>14</td><td></td><td></td><td></td><td>3</td><td>20</td><td class='details'><details><summary>Voir</summary><pre>Debug: long code between lines 57 and 87?
+Debug: unbalanced parentheses between lines 57 and 87?
+Debug: long code between lines 57 and 87?
+Debug: unbalanced parentheses between lines 57 and 87?</pre></details></td></tr><tr><td>price_parameters.py</td><td>5</td><td>2</td><td>1</td><td>5</td><td>41</td><td>9</td><td>17</td><td>1</td><td></td><td></td><td></td><td>2</td><td>7</td><td class='details'></td></tr><tr><td>sensibilities.py</td><td>5</td><td>3</td><td>3</td><td>11</td><td>68</td><td>22</td><td>15</td><td>3</td><td>1</td><td></td><td></td><td>2</td><td>8</td><td class='details'><details><summary>Voir</summary><pre>Function is not typed on line 36</pre></details></td></tr><tr><td>study.py</td><td>5</td><td>4</td><td>56</td><td>2</td><td>876</td><td>81</td><td>25</td><td>29</td><td></td><td></td><td></td><td>5</td><td>20</td><td class='details'></td></tr><tr><td>tree.py</td><td>5</td><td>3</td><td>9</td><td>6</td><td>146</td><td>22</td><td>20</td><td>9</td><td></td><td></td><td></td><td>3</td><td>15</td><td class='details'></td></tr><tr><td>tree_visualizer.py</td><td>5</td><td>1</td><td>4</td><td>5</td><td>155</td><td>14</td><td>22</td><td>8</td><td></td><td></td><td></td><td>3</td><td>17</td><td class='details'></td></tr></tbody>
+  </table>
+
+  <details class='raw'><summary>Afficher l'output texte (copie)</summary><pre>app.py: numbClasses: 1, numbSubs: 6, numbFunctions: 5, numbLines: 156, numbEmptyLines: 19, numbLinesNoComment: 22, numbPrivate: 7, maxDepth: 3, maxLineByMethod: 13, globalGrade: 5.0
+black_scholes.py: numbClasses: 2, numbSubs: 2, numbFunctions: 4, numbLines: 62, numbEmptyLines: 11, numbLinesNoComment: 25, numbPrivate: 2, maxDepth: 2, maxLineByMethod: 11, globalGrade: 5.0
+level.py: numbClasses: 2, numbSubs: 6, numbFunctions: 7, numbLines: 200, numbEmptyLines: 18, numbLinesNoComment: 20, numbPrivate: 8, maxDepth: 3, maxLineByMethod: 18, globalGrade: 5.0
+main.py: numbLines: 2, numbEmptyLines: 1, numbLinesNoComment: 2, globalGrade: 5.0
+market.py: numbClasses: 1, numbSubs: 1, numbFunctions: 2, numbLines: 26, numbEmptyLines: 4, numbLinesNoComment: 13, numbPrivate: 1, maxDepth: 2, maxLineByMethod: 6, globalGrade: 5.0
+node.py: numbClasses: 2, numbSubs: 2, numbFunctions: 5, numbLines: 83, numbEmptyLines: 11, numbLinesNoComment: 25, numbPrivate: 3, maxDepth: 3, maxLineByMethod: 15, globalGrade: 5.0
+option.py: numbClasses: 3, numbSubs: 1, numbFunctions: 3, numbLines: 30, numbEmptyLines: 11, numbLinesNoComment: 17, numbPrivate: 1, maxDepth: 2, maxLineByMethod: 6, globalGrade: 5.0
+option_pricer.py: numbClasses: 1, numbSubs: 1, numbFunctions: 10, numbLines: 141, numbEmptyLines: 17, numbLinesNoComment: 21, numbPrivate: 7, maxDepth: 3, maxLineByMethod: 20, globalGrade: 5.0
+orchestrator.py: numbClasses: 1, numbSubs: 10, numbFunctions: 12, numbLines: 328, numbEmptyLines: 40, numbLinesNoComment: 20, numbPrivate: 14, maxDepth: 3, maxLineByMethod: 20, globalGrade: 5.0, detailedLog: Debug: long code between lines 57 and 87?, Debug: unbalanced parentheses between lines 57 and 87?, Debug: long code between lines 57 and 87?, Debug: unbalanced parentheses between lines 57 and 87?, 
+price_parameters.py: numbClasses: 2, numbSubs: 1, numbFunctions: 5, numbLines: 41, numbEmptyLines: 9, numbLinesNoComment: 17, numbPrivate: 1, maxDepth: 2, maxLineByMethod: 7, globalGrade: 5.0
+sensibilities.py: numbClasses: 3, numbSubs: 3, numbFunctions: 11, numbLines: 68, numbEmptyLines: 22, numbLinesNoComment: 15, numbPrivate: 3, numbUntypedFunctions: 1, maxDepth: 2, maxLineByMethod: 8, globalGrade: 5.0, detailedLog: Function is not typed on line 36, 
+study.py: numbClasses: 4, numbSubs: 56, numbFunctions: 2, numbLines: 876, numbEmptyLines: 81, numbLinesNoComment: 25, numbPrivate: 29, maxDepth: 5, maxLineByMethod: 20, globalGrade: 5.0
+tree.py: numbClasses: 3, numbSubs: 9, numbFunctions: 6, numbLines: 146, numbEmptyLines: 22, numbLinesNoComment: 20, numbPrivate: 9, maxDepth: 3, maxLineByMethod: 15, globalGrade: 5.0
+tree_visualizer.py: numbClasses: 1, numbSubs: 4, numbFunctions: 5, numbLines: 155, numbEmptyLines: 14, numbLinesNoComment: 22, numbPrivate: 8, maxDepth: 3, maxLineByMethod: 17, globalGrade: 5.0
+Global grade = 5.0 / 5</pre></details>
+</body>
+</html>

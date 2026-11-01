@@ -1,0 +1,16 @@
+
+app.py: numbClasses: 1, numbSubs: 6, numbFunctions: 5, numbLines: 156, numbEmptyLines: 19, numbLinesNoComment: 22, numbPrivate: 7, maxDepth: 3, maxLineByMethod: 13, globalGrade: 5.0
+black_scholes.py: numbClasses: 2, numbSubs: 2, numbFunctions: 4, numbLines: 62, numbEmptyLines: 11, numbLinesNoComment: 25, numbPrivate: 2, maxDepth: 2, maxLineByMethod: 11, globalGrade: 5.0
+level.py: numbClasses: 2, numbSubs: 6, numbFunctions: 7, numbLines: 200, numbEmptyLines: 18, numbLinesNoComment: 20, numbPrivate: 8, maxDepth: 3, maxLineByMethod: 18, globalGrade: 5.0
+main.py: numbLines: 2, numbEmptyLines: 1, numbLinesNoComment: 2, globalGrade: 5.0
+market.py: numbClasses: 1, numbSubs: 1, numbFunctions: 2, numbLines: 26, numbEmptyLines: 4, numbLinesNoComment: 13, numbPrivate: 1, maxDepth: 2, maxLineByMethod: 6, globalGrade: 5.0
+node.py: numbClasses: 2, numbSubs: 2, numbFunctions: 5, numbLines: 83, numbEmptyLines: 11, numbLinesNoComment: 25, numbPrivate: 3, maxDepth: 3, maxLineByMethod: 15, globalGrade: 5.0
+option.py: numbClasses: 3, numbSubs: 1, numbFunctions: 3, numbLines: 30, numbEmptyLines: 11, numbLinesNoComment: 17, numbPrivate: 1, maxDepth: 2, maxLineByMethod: 6, globalGrade: 5.0
+option_pricer.py: numbClasses: 1, numbSubs: 1, numbFunctions: 10, numbLines: 141, numbEmptyLines: 17, numbLinesNoComment: 21, numbPrivate: 7, maxDepth: 3, maxLineByMethod: 20, globalGrade: 5.0
+orchestrator.py: numbClasses: 1, numbSubs: 10, numbFunctions: 12, numbLines: 328, numbEmptyLines: 40, numbLinesNoComment: 20, numbPrivate: 14, maxDepth: 3, maxLineByMethod: 20, globalGrade: 5.0, detailedLog: Debug: long code between lines 57 and 87?, Debug: unbalanced parentheses between lines 57 and 87?, Debug: long code between lines 57 and 87?, Debug: unbalanced parentheses between lines 57 and 87?, 
+price_parameters.py: numbClasses: 2, numbSubs: 1, numbFunctions: 5, numbLines: 41, numbEmptyLines: 9, numbLinesNoComment: 17, numbPrivate: 1, maxDepth: 2, maxLineByMethod: 7, globalGrade: 5.0
+sensibilities.py: numbClasses: 3, numbSubs: 3, numbFunctions: 11, numbLines: 68, numbEmptyLines: 22, numbLinesNoComment: 15, numbPrivate: 3, numbUntypedFunctions: 1, maxDepth: 2, maxLineByMethod: 8, globalGrade: 5.0, detailedLog: Function is not typed on line 36, 
+study.py: numbClasses: 4, numbSubs: 56, numbFunctions: 2, numbLines: 876, numbEmptyLines: 81, numbLinesNoComment: 25, numbPrivate: 29, maxDepth: 5, maxLineByMethod: 20, globalGrade: 5.0
+tree.py: numbClasses: 3, numbSubs: 9, numbFunctions: 6, numbLines: 146, numbEmptyLines: 22, numbLinesNoComment: 20, numbPrivate: 9, maxDepth: 3, maxLineByMethod: 15, globalGrade: 5.0
+tree_visualizer.py: numbClasses: 1, numbSubs: 4, numbFunctions: 5, numbLines: 155, numbEmptyLines: 14, numbLinesNoComment: 22, numbPrivate: 8, maxDepth: 3, maxLineByMethod: 17, globalGrade: 5.0
+Global grade = 5.0 / 5
