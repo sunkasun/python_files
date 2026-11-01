@@ -70,8 +70,8 @@ class GreeksTree:
         self._prices: dict = {}
 
     def price_tree_one_dim(self, params: Parameters) -> float:
-        """Prix de l'arbre pour un état des paramètres (mémorisé : clé = valeurs de tous les attributs)."""
-        key = tuple(vars(params).values())
+        """Prix mémorisé pour l'état choqué ; la configuration du pricer reste fixe."""
+        key = tuple(value for name, value in vars(params).items() if name != "pricer")
         if key not in self._prices:
             self._prices[key] = self.pricing_function(*params.to_objects())
         return self._prices[key]
