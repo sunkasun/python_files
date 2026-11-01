@@ -9,7 +9,7 @@ from option import Option
 from price_parameters import PriceParameters
 
 GREEKS = ("Delta", "Gamma", "Theta", "Vega", "Rho", "Vanna", "Vomma")
-TRADING_DAYS = 252.0      # Theta exprimé par jour de bourse (convention de marché, comme le Theta Black-Scholes)
+TRADING_DAYS = 252.0 # Theta exprimé par jour de bourse (convention de marché, comme le Theta Black-Scholes)
 
 
 class Parameters:
@@ -19,7 +19,7 @@ class Parameters:
         self.dividend, self.ex_div_date = market_data.dividend, market_data.ex_div_date
         self.strike, self.maturity = option_data.strike, option_data.maturity
         self.call_put, self.eur_am = option_data.call_put, option_data.eur_am
-        self.pricer = pricer_parameters                    # pas, méthode, pruning : jamais choqués
+        self.pricer = pricer_parameters # pas, méthode, pruning : jamais choqués
 
     def to_objects(self) -> tuple[Market, Option, PriceParameters]:
         """Objets du pricer correspondant à cet état (choqué ou non)."""
@@ -64,7 +64,7 @@ class GreeksTree:
                  vol_shift: float = 0.01, rate_shift: float = 0.01, theta_days: int = 1) -> None:
         self.params = Parameters(pricer_parameters, market_data, option_data)
         self.pricing_function = pricing_function
-        self.h_spot = spot_shift * market_data.s0                      # choc relatif du spot (1 % par défaut)
+        self.h_spot = spot_shift * market_data.s0 # choc relatif du spot (1 % par défaut)
         self.h_vol = min(vol_shift, 0.5 * market_data.vol) if market_data.vol > 0 else vol_shift
         self.h_rate, self.theta_days = rate_shift, theta_days
         self._prices: dict = {}
