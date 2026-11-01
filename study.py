@@ -284,9 +284,6 @@ class EtudePricing:
                         fig.add_vline(x=saved["div_time"], line_dash="dash", line_color="grey")
                     Affichage.show_chart(fig, "ex_avg")
             _courbe_valeur()
-            st.caption("À taux nul, des nœuds très dans la monnaie peuvent être marqués « exercés » alors que "
-                       "l'exercice et la continuation sont égaux à l'arrondi machine près : il s'agit d'indifférence, "
-                       "la prime américaine reste nulle.")
 
     @staticmethod
     def distribution(market: Market, option: Option, pricer: PriceParameters, state: dict) -> None:
@@ -356,9 +353,8 @@ class EtudePricing:
     def grecques(market: Market, option: Option, pricer: PriceParameters, state: dict) -> None:
         """Grecques de l'arbre (différences finies, GreeksTree) et Black-Scholes ; Delta / Gamma par 3 méthodes."""
         with Affichage.section("Grecques",
-                               "GreeksTree (méthode de l'énoncé) : l'arbre complet est revalorisé avec un paramètre "
-                               "choqué (S0 ± 1 %, sigma ± 1 %, r ± 1 %, maturité - 1 jour). Delta et Gamma peuvent aussi "
-                               "être lus sur les nœuds (autres méthodes du cours)."):
+                               "Theta par jour de bourse (/252) ; Vega, Rho, Vanna pour 1 % ; Vomma pour 1 %². Gamma par choc "
+                               "du spot : bruité à faible N (la grille se déplace avec S0)"):
             c_sel, c_meth = st.columns([3, 2], vertical_alignment="bottom")
             selected = c_sel.multiselect("Grecques", GREEKS, default=["Delta", "Gamma", "Theta"], key="greeks_sel")
             dg_method = c_meth.selectbox("Méthode pour Delta / Gamma", Orchestrator.DELTA_METHODS, key="greeks_dg")
@@ -388,9 +384,6 @@ class EtudePricing:
                                     "Écart (arbre - BS)": values[g] - bs.get(g, np.nan)} for g in selected])
                 Affichage.show_df(df if bs else df[["Grecque", "Arbre"]],
                                   column_config={c: st.column_config.NumberColumn(format="%.6f") for c in df.columns[1:]})
-                st.caption("Theta par jour de bourse (/252) ; Vega, Rho, Vanna pour 1 % ; Vomma pour 1 %². Gamma par choc "
-                           "du spot : bruité à faible N (la grille se déplace avec S0) ; les méthodes « nœuds » le donnent "
-                           "avec une grille fixe.")
             _tableau_grecques()
 
     @staticmethod
@@ -576,8 +569,6 @@ class EtudeComparative:
             _tracer_convergence_grecques()
             fig.update_xaxes(type="log")
             Affichage.show_chart(fig, f"cmp_gconv_{key}")
-            st.caption("Les dérivées secondes (Gamma, Vomma) oscillent davantage : elles dérivent deux fois un prix déjà "
-                       "discrétisé, et la grille se déplace avec le paramètre choqué.")
 
     @classmethod
     def prix_selon_strike(cls, market: Market, option: Option, pricer: PriceParameters, key: str) -> None:
@@ -966,7 +957,7 @@ class EtudePerformances:
     def methodes_delta_gamma(market: Market, option: Option, pricer: PriceParameters, key: str) -> None:
         """Delta et Gamma par les trois méthodes du cours : temps de calcul et écart à Black-Scholes."""
         bs = Orchestrator.greeks_bs(market, option, pricer, ("Delta", "Gamma"))
-        with Affichage.section("Delta et Gamma : trois méthodes de calcul (slides du cours) – 25 à 1 000 pas", ""):
+        with Affichage.section("Delta et Gamma : trois méthodes de calcul – 25 à 1 000 pas", ""):
             saved = st.session_state.get("res_dg")
             if saved is None or saved[0] != key:
                 rows = []
@@ -995,8 +986,7 @@ class EtudePerformances:
             },
                             view, col, f"perf_dg_{key}", log_x=True, log_y=view == "Temps de calcul")
             if bs:
-                st.caption(f"Black-Scholes : Delta {bs['Delta']:.6f}, Gamma {bs['Gamma']:.6f}. Le choc du spot déplace la "
-                           "grille, ce qui rend son Gamma bruité ; les nœuds autour de la racine gardent une grille fixe.")
+                st.caption(f"Black-Scholes : Delta {bs['Delta']:.6f}, Gamma {bs['Gamma']:.6f}.")
 
     @classmethod
     def erreurs_pruning(cls, market: Market, option: Option, pricer: PriceParameters, key: str) -> None:
